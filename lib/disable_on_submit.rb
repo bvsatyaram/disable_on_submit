@@ -1,1 +1,1 @@
-# DisableOnSubmit
+require "disable_on_submit/core_ext"
