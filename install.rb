@@ -1,1 +1,1 @@
-# Install hook code here
+File.copy(File.dirname(__FILE__) + '/resources/disable_on_submit.js', RAILS_ROOT + '/public/javascripts/') unless File.exist?(RAILS_ROOT + '/public/javascripts/disable_on_submit.js')

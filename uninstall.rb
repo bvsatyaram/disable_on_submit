@@ -1,1 +1,1 @@
-# Uninstall hook code here
+File.delete(RAILS_ROOT + '/public/javascripts/disable_on_submit.js') if File.exist?(RAILS_ROOT + '/public/javascripts/disable_on_submit.js')

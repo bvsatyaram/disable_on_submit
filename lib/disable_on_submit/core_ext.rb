@@ -4,7 +4,7 @@ module UrlHelperExtensions
   # link_to function points to 'method_javascript_function' eventually to generate the
   # hidden fom for links with a :method
   def method_javascript_function_with_disable(method, url = '', href = nil)
-    disable_code = "BetterProgressBar.disableLink(this); "
+    disable_code = "DisableOnSubmit.disableLink(this); "
     code = method_javascript_function_without_disable(method, url, href)
     code += disable_code if method != :get
     return code
@@ -23,8 +23,8 @@ module PrototypeHelperExtensions
   # required to carry out the ajax operations
   def remote_function(options)
     options[:before] = options[:before] ? options[:before] + "; " : ""
-    options[:before] << "BetterProgressBar.disableElement();"
-    options[:complete] = 'BetterProgressBar.reEnableElement(); ' +  (options[:complete] || '')
+    options[:before] << "DisableOnSubmit.disableElement();"
+    options[:complete] = 'DisableOnSubmit.reEnableElement(); ' +  (options[:complete] || '')
     super(options)
   end
 end
@@ -72,7 +72,7 @@ module ActionViewExtensions
       disable_with_text = options.delete(:disable_with) || 'Processing...'
       deactivate_button = options.delete(:deactivate_button) || false
       options[:onclick] ||= ""
-      options[:onclick] = "BetterProgressBar.markElementForDisable(this, '#{disable_with_text}', #{deactivate_button}); " + options[:onclick]
+      options[:onclick] = "DisableOnSubmit.markElementForDisable(this, '#{disable_with_text}', #{deactivate_button}); " + options[:onclick]
     end
 
     submit_tag_without_disable(value, options)
