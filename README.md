@@ -1,14 +1,18 @@
-disable_on_click
+disable_on_submit
 =============
 
-`disable_on_click` rails plugin avoids mulitple submission of forms by disabling the submit button once pressed. The button is re-enabled once the response is back.
+`disable_on_submit` rails plugin avoids mulitple submission of forms by disabling the submit button once pressed. The button is re-enabled once the response is back.
 Please note that this plugin assumes usage of `prototype` in the rails app.
 The plugin overrides the rails inbuilt `method_javascript_function_with_disable` method, retaining all its functionality.
 
 Installation
 ------------
 
+Run the following script in your rails root directory to install the plugin.
+
     ./script/plugin install git@github.com:bvsatyaram/disable_on_submit.git
+
+Then, copy the file `resources/disable_on_submit` to your `public/javascripts` directory and make sure that this JS file is loaded in the view.
 
 Usage
 -----
